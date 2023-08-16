@@ -1,4 +1,4 @@
-<!-- Conexion a la base de datos -->
+<!-- Conexión a la base de datos y consulta sql para eliminar por id del tercero-->
 <?php
     include("../../conexion.php");
     $stm = $conexion ->prepare("SELECT * FROM terceros");
@@ -6,7 +6,11 @@
     $terceros = $stm->fetchAll(PDO::FETCH_ASSOC);
 
     if(isset($_GET['id'])){
-
+        $txtid=(isset($_GET['id']));
+        $stm=$conexion->prepare("DELETE FROM terceros WHERE id=:txtid");
+        $stm->bindParam(":txtid",$txtid);
+        $stm->execute();
+        header("location: index.php");
     }
 
 
@@ -38,7 +42,7 @@
                     <td> <?php echo $tercero['numeroDocumento'];?> </td>
                     <td> <?php echo $tercero['esPaciente'];?> </td>
                     <td>  
-                        <a href="" class="btn btn-primary">Editar</a>
+                        <a href="editar.php?id=<?php echo $tercero['id'];?>" class="btn btn-primary">Editar</a>
                         <a href="index.php?id=<?php echo $tercero['id'];?>" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
