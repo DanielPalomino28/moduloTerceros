@@ -4,6 +4,12 @@
     $stm = $conexion ->prepare("SELECT * FROM terceros");
     $stm->execute();
     $terceros = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+    if(isset($_GET['id'])){
+
+    }
+
+
 ?>
 <!-- Include Header -->
 <?php include("../../templates/header.php");?>
@@ -31,7 +37,10 @@
                     <td> <?php echo $tercero['tipoDocumento'];?> </td>
                     <td> <?php echo $tercero['numeroDocumento'];?> </td>
                     <td> <?php echo $tercero['esPaciente'];?> </td>
-                    <td> Editar | Eliminar </td>
+                    <td>  
+                        <a href="" class="btn btn-primary">Editar</a>
+                        <a href="index.php?id=<?php echo $tercero['id'];?>" class="btn btn-danger">Eliminar</a>
+                    </td>
                 </tr>
             
             <?php } ?>
