@@ -20,10 +20,11 @@ if($_POST){
   $stm -> bindParam(":gen",$gen);
   $stm -> bindParam(":est",$est);
   $stm -> bindParam(":switch_button",$switch_button);
-
+  
   $stm->execute();
-  header("location:index.php");
-
+  header("Location: ../../index.php");
+  exit();
+  
 }
 
 
@@ -62,7 +63,7 @@ if($_POST){
             </select><br>
           
           <label for="">Numero de documento</label>
-            <input type="number" class="form-control" name="numeroDocumento" id="" placeholder="Ingrese número de documento">
+            <input type="tex" class="form-control" name="numeroDocumento" id="" placeholder="Ingrese número de documento">
           
           <label for=""require>Fecha de nacimiento</label>
             <input type="date" class="form-control" name="fechaNacimiento" id="" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01">
