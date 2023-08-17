@@ -64,13 +64,13 @@
     <input type="hidden" class="form-control" name="txtid" value="<?php echo $txtid; ?>">
 
     <label for="" require>Nombres</label>
-    <input type="text" class="form-control" name="nombre" value="<?php echo $nombre; ?>" placeholder="Ingrese nombres">
+    <input type="text" class="form-control" name="nombre" value="<?php echo $nombre; ?>" placeholder="Ingrese el nombre del tercero" required>
     
     <label for="" require>Apellidos</label>
-    <input type="text" class="form-control" name="apellido" value="<?php echo $apellido; ?>" placeholder="Ingrese apellidos">
+    <input type="text" class="form-control" name="apellido" id="apellidos" value="<?php echo $apellido; ?>" placeholder="Ingrese el apellido del tercero">
     
     <label for="tipoDocumento">Tipo de documento</label><br>
-    <select name="tipoD" id="tipoDocumento">
+    <select name="tipoD" id="tipoDocumento" class="form-select">
         <option value="<?php echo $tipoDoc; ?>"><?php echo $tipoDoc; ?></option>
         <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
         <option value="Cédula de Extranjería">Cédula de Extranjería</option>
@@ -79,39 +79,38 @@
         <option value="Registro Civil de Nacimiento">Registro Civil de Nacimiento</option>
         <option value="Permiso Especial de Permanencia">Permiso Especial de Permanencia</option>
         <option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
-    </select><br>
+    </select>
     
     <label for="">Numero de documento</label>
-    <input type="number" class="form-control" name="numeroDocumento" value="<?php echo $numDoc; ?>" placeholder="Ingrese número de documento">
+    <input type="text" class="form-control" name="numeroDocumento" value="<?php echo $numDoc; ?>" placeholder="Ingrese número de documento">
     
     <label for=""require>Fecha de nacimiento</label>
-    <input type="date" class="form-control" name="fechaNacimiento" value="<?php echo $fechaNac; ?>" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01">
+    <input type="date" class="form-control" name="fechaNacimiento" value="<?php echo $fechaNac; ?>" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01" required>
     
     <label for="genero">Género</label><br>
-    <select name="gen" id="genero" >
+    <select name="gen" id="genero" class="form-select">
         <option value="<?php echo $genero; ?>"><?php echo $genero; ?></option>
+        <option value=""></option>
         <option value="Masculino">Masculino</option>
         <option value="Femenino">Femenino</option>
         <option value="No binario">No binario</option>
-    </select><br>
-    
+    </select>    
     <label for="estadoCivil">Estado civil</label><br>
-    <select name="est" id="estadoCivil">
+    <select name="est" id="estadoCivil" class="form-select">
         <option value="<?php echo $estCivil; ?>"><?php echo $estCivil; ?></option>
         <option value="Soltero/a">Soltero/a</option>
         <option value="Unión libre">Unión libre</option>
         <option value="Casado/a">Casado/a</option>
         <option value="Divorciado/a">Divorciado/a</option>
         <option value="Viudo/a">Viudo/a</option>
-    </select><br>
+        <option value=""></option>
+    </select>
 
-    <label for="">paciente</label>
-    <div class="switch_button">
-        <!-- Checkbox -->
-        <input type="checkbox" name="switch_button" id="switch_label" class="switch_button__checkbox" <?php if($esPaciente==="on") echo "checked" ?>>
-        <!-- Botón -->
-        <label for="switch_label" class="switch_button__label"></label>
+    <div class="form-check form-switch">
+        <input name="switch_button" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" <?php if($esPaciente==="on") echo "checked" ?>>
+        <label class="form-check-label" for="flexSwitchCheckDefault">¿Es paciente?</label>
     </div>
+
     <div class="modal-footer">
         <a href="index.php" class="btn btn-danger">Cancelar</a>
         <button type="submit" class="btn btn-primary">Actualizar</button>

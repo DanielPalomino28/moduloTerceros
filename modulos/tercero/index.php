@@ -1,3 +1,7 @@
+<!-- Include Header-->
+<?php 
+    include("../../templates/header.php");
+?>
 
 <!-- Conexión a la base de datos y consulta sql para eliminar por id del tercero-->
 <?php
@@ -13,22 +17,16 @@
         $stm->execute();
         header("location: index.php");
     }
-
-
 ?>
-<!-- Include Header-->
-<?php 
-    include("../../templates/header.php");
-?>
-<?php $url_base="http://localhost/moduloTerceros/"; ?>
 
 <!-- Button trigger modal para crear tercero -->
 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#creartercero">
     Crear tercero
 </button> 
-<br>
-<div class="table-responsive">
-    <table class="table table-info">
+<!-- Tabla terceros -->
+<div class="table-responsive" >
+    <table table id="myTable" class="table table-secondary table-striped table-hover table-borderless" >
+        
         <thead>
             <tr>
                 <th scope="col">Nombre completo</th>
@@ -40,7 +38,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($terceros as $tercero){ ?>
+            <?php foreach($terceros as $tercero){?>
                 <tr class="">
                     <td scope="row"> <?php echo $tercero['nombresTercero'];?> <?php echo $tercero['apellidosTercero'];?></td>
                     <td> <?php echo $tercero['tipoDocumento'];?> </td>
@@ -71,17 +69,16 @@
                     </td>
                     <td>  
                         <a href="editar.php?id=<?php echo $tercero['id'];?>" class="btn btn-primary">Editar</a>
-                        <a href="index.php?id=<?php echo $tercero['id'];?>" class="btn btn-danger">Eliminar</a>
-                        
+                        <a href="index.php?id=<?php echo $tercero['id'];?>" class="btn btn-danger" id="eliminar">Eliminar</a>
                     </td>
                 </tr>
-            
             <?php } ?>
         </tbody>
     </table>
 </div>
 
-<?php include("creartercero.php");?>
+
 
 <!-- Include Footer  -->
 <?php include("../../templates/footer.php");?>
+<?php include("creartercero.php");?>

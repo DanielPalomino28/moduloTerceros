@@ -1,6 +1,5 @@
 <?php
   if($_POST){
-    $aux = true;
     $nombre=(isset($_POST['nombre'])?$_POST['nombre']:""); 
     $apellido=(isset($_POST['apellido'])?$_POST['apellido']:""); 
     $tipoD=(isset($_POST['tipoD'])?$_POST['tipoD']:""); 
@@ -9,7 +8,7 @@
     $gen=(isset($_POST['gen'])?$_POST['gen']:"");  
     $est=(isset($_POST['est'])?$_POST['est']:"");  
     $switch_button=(isset($_POST['switch_button'])?$_POST['switch_button']:""); 
-    
+    $aux=1;
     $stm=$conexion -> 
       prepare("INSERT INTO terceros(nombresTercero,apellidosTercero,tipoDocumento,numeroDocumento,fechaNacimiento,genero,estadoCivil,esPaciente)
       VALUES (:nombre,:apellido,:tipoD,:numeroDocumento,:fechaNacimiento,:gen,:est,:switch_button)");
@@ -21,16 +20,9 @@
     $stm -> bindParam(":gen",$gen);
     $stm -> bindParam(":est",$est);
     $stm -> bindParam(":switch_button",$switch_button);
-
-    if($aux){
-      header("Location: index.php");
-      $aux=false;
-    }
-
     $stm->execute();
+    // header("location: index.php");
   }
-  
-
 ?>
 
 <!-- Modal create-->
@@ -46,10 +38,10 @@
 
         <div class="modal-body">
           <label for="" require>Nombres</label>
-            <input type="text" class="form-control" name="nombre" id="" placeholder="Ingrese nombres">
+            <input type="text" class="form-control" name="nombre" id="" placeholder="Ingrese nombres" require>
           
           <label for="" require>Apellidos</label>
-            <input type="text" class="form-control" name="apellido" id="" placeholder="Ingrese apellidos">
+            <input type="text" class="form-control" name="apellido" id="apellidos" placeholder="Ingrese apellidos" require>
           
           <label for="tipoDocumento">Tipo de documento</label><br>
             <select name="tipoD" id="tipoDocumento" class="form-select">
@@ -67,7 +59,7 @@
             <input type="tex" class="form-control" name="numeroDocumento" id="" placeholder="Ingrese número de documento">
           
           <label for=""require>Fecha de nacimiento</label>
-            <input type="date" class="form-control" name="fechaNacimiento" id="" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01">
+            <input type="date" class="form-control" name="fechaNacimiento" id="" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01" require>
           
           <label for="genero">Género</label><br>
             <select name="gen" id="genero" class="form-select">
