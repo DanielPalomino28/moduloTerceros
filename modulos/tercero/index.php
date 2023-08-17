@@ -7,20 +7,23 @@
     $terceros = $stm->fetchAll(PDO::FETCH_ASSOC);
 
     if(isset($_GET['id'])){
-        $txtid=(isset($_GET['id']));
+        $txtid=(isset($_GET['id'])?$_GET['id']:"");
         $stm=$conexion->prepare("DELETE FROM terceros WHERE id=:txtid");
         $stm->bindParam(":txtid",$txtid);
         $stm->execute();
-        header("location:../tercero");
+        header("location: index.php");
     }
 
 
 ?>
-<!-- Include Header -->
-<?php include("../../templates/header.php");?>
+<!-- Include Header-->
+<?php 
+    include("../../templates/header.php");
+?>
 <?php $url_base="http://localhost/moduloTerceros/"; ?>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#creartercero">
+
+<!-- Button trigger modal para crear tercero -->
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#creartercero">
     Crear tercero
 </button> 
 <br>
@@ -69,6 +72,7 @@
                     <td>  
                         <a href="editar.php?id=<?php echo $tercero['id'];?>" class="btn btn-primary">Editar</a>
                         <a href="index.php?id=<?php echo $tercero['id'];?>" class="btn btn-danger">Eliminar</a>
+                        
                     </td>
                 </tr>
             
