@@ -3,12 +3,13 @@
     include("../../conexion.php");
     if(isset($_GET['id'])){
         $txtid=(isset($_GET['id'])?$_GET['id']:"");
-        // Se seleccionan todos los datos del tercero para mostrarlos en el formulario de editar
+        // Se seleccionan todos los datos del tercero a editar para mostrarlos en el formulario 
         $stm=$conexion->prepare("SELECT * FROM terceros WHERE id=:txtid");
         $stm->bindParam(":txtid",$txtid);
         $stm->execute();
+        //Se obtienen de datos y se separan 
         $datos=$stm->fetch(PDO::FETCH_LAZY);
-        //Se obtienen de datos 
+        
         $nombre=$datos['nombresTercero'];
         $apellido=$datos['apellidosTercero'];
         $tipoDoc=$datos['tipoDocumento'];
@@ -79,6 +80,7 @@
         <option value="Registro Civil de Nacimiento">Registro Civil de Nacimiento</option>
         <option value="Permiso Especial de Permanencia">Permiso Especial de Permanencia</option>
         <option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
+        <option value=""></option>
     </select>
     
     <label for="">Numero de documento</label>

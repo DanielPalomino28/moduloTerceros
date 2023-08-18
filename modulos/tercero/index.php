@@ -6,9 +6,13 @@
 <!-- Conexión a la base de datos y consulta sql para eliminar por id del tercero-->
 <?php
     include("../../conexion.php");
-    $stm = $conexion ->prepare("SELECT * FROM terceros");
+    // Preparar una consulta SQL para seleccionar todos los registros de la tabla "terceros"
+    $stm = $conexion->prepare("SELECT * FROM terceros");
+
+    // Ejecutar la consulta preparada
     $stm->execute();
-    $terceros = $stm->fetchAll(PDO::FETCH_ASSOC);
+    // Recupera todos los registros de la consulta y los almacena en un array asociativo
+    $terceros = $stm->fetchAll(PDO::FETCH_ASSOC);   
 
     if(isset($_GET['id'])){
         $txtid=(isset($_GET['id'])?$_GET['id']:"");

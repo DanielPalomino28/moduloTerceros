@@ -103,4 +103,3 @@
 
 <!-- Include Footer  -->
 <?php include("../../templates/footer.php");?>
-<?php include("creartercero.php");?>

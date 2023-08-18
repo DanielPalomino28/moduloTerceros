@@ -1,7 +1,7 @@
 <?php $url_base="http://localhost/moduloTerceros/"; ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <title>Módulo terceros</title>
@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand navbar-light" style="background-color: #e3f2fd">
         <ul class="nav navbar-nav" id="encabezado"> 
-                <img src="" alt="" > 
+               
                 <li class="nav-item">
                     <a class="nav-link active" href="<?php echo $url_base; ?>" aria-current="page">Página principal<span class="visually-hidden">(current)</span></a>
                 </li>

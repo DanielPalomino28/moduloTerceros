@@ -6,8 +6,11 @@ function confirmacion(evento){
         evento.preventDefault();
     }
 }
+// Seleccionar todos los elementos con el ID "eliminar" y almacenarlos en la variable enlaceEliminar
 let enlaceEliminar = document.querySelectorAll("#eliminar");
 
-for(var i = 0; i<enlaceEliminar.length;i++){
-    enlaceEliminar[i].addEventListener('click',confirmacion)
+// Iterar a través de la colección de elementos enlaceEliminar y agregar un evento de clic a cada uno
+for (var i = 0; i < enlaceEliminar.length; i++) {
+    // Agregar un evento de clic a cada elemento enlaceEliminar y llamar a la función confirmacion
+    enlaceEliminar[i].addEventListener('click', confirmacion);
 }

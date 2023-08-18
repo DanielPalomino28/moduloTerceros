@@ -8,7 +8,7 @@
     $gen=(isset($_POST['gen'])?$_POST['gen']:"");  
     $est=(isset($_POST['est'])?$_POST['est']:"");  
     $switch_button=(isset($_POST['switch_button'])?$_POST['switch_button']:""); 
-    $aux=1;
+    
     $stm=$conexion -> 
       prepare("INSERT INTO terceros(nombresTercero,apellidosTercero,tipoDocumento,numeroDocumento,fechaNacimiento,genero,estadoCivil,esPaciente)
       VALUES (:nombre,:apellido,:tipoD,:numeroDocumento,:fechaNacimiento,:gen,:est,:switch_button)");
@@ -21,7 +21,8 @@
     $stm -> bindParam(":est",$est);
     $stm -> bindParam(":switch_button",$switch_button);
     $stm->execute();
-     header("location:/modulos/tercero/index.php");
+    // header("location: index.php");
+    // header("location:../../index.php");
   }
   
 ?>
@@ -39,10 +40,10 @@
 
         <div class="modal-body">
           <label for="" require>Nombres</label>
-            <input type="text" class="form-control" name="nombre" id="" placeholder="Ingrese nombres" require>
+            <input type="text" class="form-control" name="nombre" id="" placeholder="Ingrese nombres" required>
           
           <label for="" require>Apellidos</label>
-            <input type="text" class="form-control" name="apellido" id="apellidos" placeholder="Ingrese apellidos" require>
+            <input type="text" class="form-control" name="apellido" id="apellidos" placeholder="Ingrese apellidos">
           
           <label for="tipoDocumento">Tipo de documento</label><br>
             <select name="tipoD" id="tipoDocumento" class="form-select">
@@ -60,7 +61,7 @@
             <input type="tex" class="form-control" name="numeroDocumento" id="" placeholder="Ingrese número de documento">
           
           <label for=""require>Fecha de nacimiento</label>
-            <input type="date" class="form-control" name="fechaNacimiento" id="" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01" require>
+            <input type="date" class="form-control" name="fechaNacimiento" id="" placeholder="Ingrese fecha de nacimiento" max="2024-01-01" min="1900-01-01" required>
           
           <label for="genero">Género</label><br>
             <select name="gen" id="genero" class="form-select">
@@ -88,9 +89,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <a href="/modulos/tercero/index.php">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </a>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          
         </div>
       </form>
     </div>
