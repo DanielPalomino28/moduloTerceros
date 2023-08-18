@@ -16,29 +16,31 @@
     }
 ?>
 
-<form method="GET" action="">
+<form method="GET" action="" >
     <!-- <label for="fecha_inicio">Fecha inicial:</label>
     <input type="date" id="fecha_inicio" name="fecha_inicio">
     <label for="fecha_fin">Fecha final:</label>
     <input type="date" id="fecha_fin" name="fecha_fin"> -->
 
-    <div class="input-group">
-        <span class="input-group-text">Rango de fechas</span>
-        <input type="date" id="fecha_inicio" name="fecha_inicio">
-        <input type="date" id="fecha_fin" name="fecha_fin">
+    <div class="opcionesReporte">
+        <div class="input-group">
+            <span class="input-group-text">Rango de fechas</span>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" class="bntRango">
+            <input type="date" id="fecha_fin" name="fecha_fin" class="bntRango">
+        </div>
+        <div class="form-floating">
+            <select id="filtro_columna" name="filtro_columna" class="form-select">
+                <option value="todos" selected>Todos</option>
+                <option value="on">Solo pacientes</option>
+                <option value="">Solo terceros</option>
+            </select>
+            <label for="filtro_columna">Filtrar por:</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+            <a href="reporteTercerocopy.php" class="btn btn-warning">Quitar Filtros</a>
+        </div>
     </div>
-    <div class="form-floating">
-        <select id="filtro_columna" name="filtro_columna" class="form-select">
-            <option value="todos" selected>Todos</option>
-            <option value="on">Solo pacientes</option>
-            <option value="">Solo terceros</option>
-        </select>
-        <label for="filtro_columna">Filtrar por:</label>
-    </div>
-    
-
-    <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
-    <a href="reporteTercerocopy.php" class="btn btn-warning">Quitar Filtros</a>
 </form>
 
 

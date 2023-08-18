@@ -19,10 +19,13 @@
     }
 ?>
 
-<!-- Button trigger modal para crear tercero -->
-<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#creartercero">
-    Crear tercero
-</button> 
+<div class="crearT">
+    <!-- Button trigger modal para crear tercero -->
+    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#creartercero" id="btnCrearT">
+        Crear tercero
+    </button> 
+</div>
+
 <!-- Tabla terceros -->
 <div class="table-responsive" >
     <table table id="myTable" class="table table-secondary table-striped table-hover table-borderless" >

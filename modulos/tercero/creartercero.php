@@ -21,8 +21,9 @@
     $stm -> bindParam(":est",$est);
     $stm -> bindParam(":switch_button",$switch_button);
     $stm->execute();
-    // header("location: index.php");
+     header("location:/modulos/tercero/index.php");
   }
+  
 ?>
 
 <!-- Modal create-->
@@ -87,7 +88,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a href="/modulos/tercero/index.php">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </a>
         </div>
       </form>
     </div>
